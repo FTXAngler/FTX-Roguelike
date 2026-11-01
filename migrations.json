@@ -6,7 +6,8 @@
     "V47",
     "V48",
     "V49",
-    "V50"
+    "V50",
+    "V51"
   ],
   "detect": [
     {
@@ -131,6 +132,13 @@
     {
       "from": "V49",
       "to": "V50",
+      "note": "automatisch angelegt (nur Vorlage)",
+      "up": [],
+      "down": []
+    },
+    {
+      "from": "V50",
+      "to": "V51",
       "note": "automatisch angelegt (nur Vorlage)",
       "up": [],
       "down": []
