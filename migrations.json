@@ -1,10 +1,37 @@
 {
   "info": "Regeln des Spielstand-Porters im FTX Launcher. Pfade mit Punkten, * = jedes Element. Operationen: set, setIfMissing, copy (ifMissing), rename, delete, variable, switch, transfer, mapValues. Fehlende Felder füllt der Launcher zusätzlich aus save_template.json der Zielversion.",
-  "versions": ["V45", "V46", "V47"],
+  "versions": [
+    "V45",
+    "V46",
+    "V47",
+    "V48"
+  ],
   "detect": [
-    { "version": "V45", "has": ["system._timesEnemySeen"], "note": "VisuMZ-Spielstand (vor den FTX-Plugins)" },
-    { "version": "V46", "has": ["system._ftxBestiary", "system._PreservedEventMorphData"], "note": "0.3.0: FTX-Plugins, VisuMZ Events & Movement noch aktiv" },
-    { "version": "V47", "has": ["system._ftxMorphs"], "not": ["system._PreservedEventMorphData"], "note": "FTX_Events, CTB, FFX-Kampf-UI" }
+    {
+      "version": "V45",
+      "has": [
+        "system._timesEnemySeen"
+      ],
+      "note": "VisuMZ-Spielstand (vor den FTX-Plugins)"
+    },
+    {
+      "version": "V46",
+      "has": [
+        "system._ftxBestiary",
+        "system._PreservedEventMorphData"
+      ],
+      "note": "0.3.0: FTX-Plugins, VisuMZ Events & Movement noch aktiv"
+    },
+    {
+      "version": "V47",
+      "has": [
+        "system._ftxMorphs"
+      ],
+      "not": [
+        "system._PreservedEventMorphData"
+      ],
+      "note": "FTX_Events, CTB, FFX-Kampf-UI"
+    }
   ],
   "templateSkip": [],
   "steps": [
@@ -13,14 +40,46 @@
       "to": "V46",
       "note": "VisuMZ -> FTX-Plugins (Bestiarium, Schwächen, TP-Modi, Boost)",
       "up": [
-        { "op": "copy", "from": "system._timesEnemySeen", "to": "system._ftxBestiary.seen", "ifMissing": true, "note": "Bestiarium (gesehen) übernommen" },
-        { "op": "copy", "from": "system._timesEnemyDefeated", "to": "system._ftxBestiary.defeated", "ifMissing": true, "note": "Bestiarium (besiegt) übernommen" },
-        { "op": "setIfMissing", "path": "system._ftxWeakKnown", "value": {} }
+        {
+          "op": "copy",
+          "from": "system._timesEnemySeen",
+          "to": "system._ftxBestiary.seen",
+          "ifMissing": true,
+          "note": "Bestiarium (gesehen) übernommen"
+        },
+        {
+          "op": "copy",
+          "from": "system._timesEnemyDefeated",
+          "to": "system._ftxBestiary.defeated",
+          "ifMissing": true,
+          "note": "Bestiarium (besiegt) übernommen"
+        },
+        {
+          "op": "setIfMissing",
+          "path": "system._ftxWeakKnown",
+          "value": {}
+        }
       ],
       "down": [
-        { "op": "copy", "from": "system._ftxBestiary.seen", "to": "system._timesEnemySeen", "ifMissing": true, "note": "Bestiarium (gesehen) zurück zu VisuMZ" },
-        { "op": "copy", "from": "system._ftxBestiary.defeated", "to": "system._timesEnemyDefeated", "ifMissing": true, "note": "Bestiarium (besiegt) zurück zu VisuMZ" },
-        { "op": "setIfMissing", "path": "system._revealedEnemyWeaknesses", "value": {} }
+        {
+          "op": "copy",
+          "from": "system._ftxBestiary.seen",
+          "to": "system._timesEnemySeen",
+          "ifMissing": true,
+          "note": "Bestiarium (gesehen) zurück zu VisuMZ"
+        },
+        {
+          "op": "copy",
+          "from": "system._ftxBestiary.defeated",
+          "to": "system._timesEnemyDefeated",
+          "ifMissing": true,
+          "note": "Bestiarium (besiegt) zurück zu VisuMZ"
+        },
+        {
+          "op": "setIfMissing",
+          "path": "system._revealedEnemyWeaknesses",
+          "value": {}
+        }
       ]
     },
     {
@@ -28,13 +87,37 @@
       "to": "V47",
       "note": "FTX_Events/Aggro/BattleHUD, CTB statt OTB, FFX-Design",
       "up": [
-        { "op": "setIfMissing", "path": "system._ftxMorphs", "value": {}, "note": "Verwandlungen: VisuMZ-Morphs werden nicht übernommen (Theke erscheint ungesperrt, Sperre bleibt)" }
+        {
+          "op": "setIfMissing",
+          "path": "system._ftxMorphs",
+          "value": {},
+          "note": "Verwandlungen: VisuMZ-Morphs werden nicht übernommen (Theke erscheint ungesperrt, Sperre bleibt)"
+        }
       ],
       "down": [
-        { "op": "setIfMissing", "path": "system._PreservedEventMorphData", "value": {} },
-        { "op": "setIfMissing", "path": "system._SavedEventLocations", "value": {} },
-        { "op": "setIfMissing", "path": "system._MapSpawnedEventData", "value": {} }
+        {
+          "op": "setIfMissing",
+          "path": "system._PreservedEventMorphData",
+          "value": {}
+        },
+        {
+          "op": "setIfMissing",
+          "path": "system._SavedEventLocations",
+          "value": {}
+        },
+        {
+          "op": "setIfMissing",
+          "path": "system._MapSpawnedEventData",
+          "value": {}
+        }
       ]
+    },
+    {
+      "from": "V47",
+      "to": "V48",
+      "note": "automatisch angelegt (nur Vorlage)",
+      "up": [],
+      "down": []
     }
   ]
 }
