@@ -10,7 +10,8 @@
     "V51",
     "V52",
     "V53",
-    "V54"
+    "V54",
+    "V55"
   ],
   "detect": [
     {
@@ -170,6 +171,13 @@
     {
       "from": "V53",
       "to": "V54",
+      "note": "automatisch angelegt (nur Vorlage)",
+      "up": [],
+      "down": []
+    },
+    {
+      "from": "V54",
+      "to": "V55",
       "note": "automatisch angelegt (nur Vorlage)",
       "up": [],
       "down": []
