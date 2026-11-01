@@ -4,7 +4,8 @@
     "V45",
     "V46",
     "V47",
-    "V48"
+    "V48",
+    "V49"
   ],
   "detect": [
     {
@@ -115,6 +116,13 @@
     {
       "from": "V47",
       "to": "V48",
+      "note": "automatisch angelegt (nur Vorlage)",
+      "up": [],
+      "down": []
+    },
+    {
+      "from": "V48",
+      "to": "V49",
       "note": "automatisch angelegt (nur Vorlage)",
       "up": [],
       "down": []
