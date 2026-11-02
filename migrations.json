@@ -13,7 +13,8 @@
     "V54",
     "V55",
     "V56",
-    "V57"
+    "V57",
+    "V58"
   ],
   "detect": [
     {
@@ -201,6 +202,13 @@
           "path": "actors._data.*._traitSets.Gender"
         }
       ],
+      "down": []
+    },
+    {
+      "from": "V57",
+      "to": "V58",
+      "note": "automatisch angelegt (nur Vorlage)",
+      "up": [],
       "down": []
     }
   ]
